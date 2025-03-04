@@ -1,11 +1,26 @@
 package com.mystore.app.entity;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+
 public class Product {
 
-    private Integer id;
+	private Integer id;
+	@NotEmpty(message = "Product name is required")
+	@NotNull(message = "Product name is required")
     private String name;
+	@NotEmpty(message = "Product category is required")
+	@NotNull(message = "Product category is required")
     private String category;
+	@NotEmpty(message = "price name is required")
+	@NotNull(message = "price name is required")
+	@Positive(message = "price cannot be negative")
     private Double price;
+	@NotEmpty(message = "stockQuantity name is required")
+	@NotNull(message = "stockQuantity name is required")
+	@Positive(message = "stockQuantity cannot be negative")
     private Integer stockQuantity;
 
     public Product(Integer id, String name, String category, Double price, Integer stockQuantity) {
